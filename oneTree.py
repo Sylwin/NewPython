@@ -33,7 +33,6 @@ def setup(rules, leftAngle, rightAngle, forward, wid):
         tlist[i].goto(wid[i], -window_height()/2)
         tlist[i].pendown()
         generators.append(drawTree(rules, tlist[i], leftAngle, rightAngle, forward))
-        #update()
     suma = 0
     while suma < len(wid):
         for n in range(len(wid)):

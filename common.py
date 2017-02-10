@@ -47,5 +47,5 @@ def drawTree(commands, turtle, leftAngle, rightAngle, forwardDistance):
                 turtle.setheading(heading)
                 turtle.down()
         else:
-            raise ValueError('Unknown cmd {}'.format(ord(cmd)))
+            raise ValueError('Unknown cmd: %c' % cmd)
         yield(0)
