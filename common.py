@@ -1,6 +1,6 @@
 from random import *
 from turtle import *
-import treesRules as tree
+import treesRules as tr
 
 def cutRandomString(result):
     leng = len(result)
@@ -49,4 +49,3 @@ def drawTree(commands, turtle, leftAngle, rightAngle, forwardDistance):
         else:
             raise ValueError('Unknown cmd {}'.format(ord(cmd)))
         yield(0)
-

@@ -2,30 +2,23 @@ from common import *
 
 class lSystem(object):
     def __init__(self, rules):
-        self.res = rules #cutRandomString(rules)
+        self.res = rules
 
     def run(self, left, right, forward):
-        return manyTrees(self.res, left, right, forward)
+        return oneTree(self.res, left, right, forward)
 
-def oneBushyTree():
-    plant = tree.bushyTree(5)
-    lSystem(plant).run(25,25,5)
-
-def oneTwiggyTree():
-    plant = tree.twiggyTree(7)
-    lSystem(plant).run(25,25,2)
-
-def oneBush():
-    plant = tree.bushes(6)
-    lSystem(plant).run(25,25,3)
-
-def oneClimber():
-    plant = tree.climber(4)
-    lSystem(plant).run(27,27,4)
-
-def oneConiferLikeTree():
-    plant = tree.coniferLikeTree(12)
-    lSystem(plant).run(20,20,11)
+def tree(function, *args):
+    plant = function(*args)
+    if(function == tr.bushyTree):
+        lSystem(plant).run(25,25,5)
+    elif(function == tr.twiggyTree):
+        lSystem(plant).run(25,25,2)
+    elif(function == tr.bushes):
+        lSystem(plant).run(25,25,3)
+    elif(function == tr.climber):
+        lSystem(plant).run(27,27,4)
+    elif(function == tr.coniferLikeTree):
+        lSystem(plant).run(20,20,11)
 
 def setup(rules, leftAngle, rightAngle, forward, wid):
     tlist = list()
@@ -40,14 +33,14 @@ def setup(rules, leftAngle, rightAngle, forward, wid):
         tlist[i].goto(wid[i], -window_height()/2)
         tlist[i].pendown()
         generators.append(drawTree(rules, tlist[i], leftAngle, rightAngle, forward))
-
+        update()
     suma = 0
     while suma < len(wid):
         for n in range(len(wid)):
             suma += next(generators[n],1)
         pass
 
-def manyTrees(rules, leftAngle, rightAngle, forward):
+def oneTree(rules, leftAngle, rightAngle, forward):
     Screen().bgcolor("#DCF3F3")
     wid = [0]
     setup(rules, leftAngle, rightAngle, forward, wid)

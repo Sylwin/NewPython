@@ -7,25 +7,18 @@ class lSystem(object):
     def run(self, left, right, forward):
         return manyTrees(self.res, left, right, forward)
 
-def manyBushyTrees():
-    plant = tree.bushyTree(4)
-    lSystem(plant).run(25,25,5)
-
-def manyTwiggyTrees():
-    plant = tree.twiggyTree(6)
-    lSystem(plant).run(25,25,2)
-
-def manyBushes():
-    plant = tree.bushes(5)
-    lSystem(plant).run(25,25,4)
-
-def manyClimbers():
-    plant = tree.climber(4)
-    lSystem(plant).run(27,27,4)
-
-def manyConiferLikeTrees():
-    plant = tree.coniferLikeTree(12)
-    lSystem(plant).run(20,20,11)
+def trees(function, *args):
+    plant = function(*args)
+    if(function == tr.bushyTree):
+        lSystem(plant).run(25,25,5)
+    elif(function == tr.twiggyTree):
+        lSystem(plant).run(25,25,2)
+    elif(function == tr.bushes):
+        lSystem(plant).run(25,25,3)
+    elif(function == tr.climber):
+        lSystem(plant).run(27,27,4)
+    elif(function == tr.coniferLikeTree):
+        lSystem(plant).run(20,20,11)
 
 def setup(rules, leftAngle, rightAngle, forward, wid):
     tlist = list()
@@ -47,7 +40,6 @@ def setup(rules, leftAngle, rightAngle, forward, wid):
         for n in range(len(wid)):
             suma += next(generators[n],1)
         pass
-
 
 def manyTrees(rules, leftAngle, rightAngle, forward):
     Screen().bgcolor("#DCF3F3")
