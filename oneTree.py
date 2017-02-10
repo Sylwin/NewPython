@@ -33,7 +33,7 @@ def setup(rules, leftAngle, rightAngle, forward, wid):
         tlist[i].goto(wid[i], -window_height()/2)
         tlist[i].pendown()
         generators.append(drawTree(rules, tlist[i], leftAngle, rightAngle, forward))
-        update()
+        #update()
     suma = 0
     while suma < len(wid):
         for n in range(len(wid)):
@@ -42,6 +42,7 @@ def setup(rules, leftAngle, rightAngle, forward, wid):
 
 def oneTree(rules, leftAngle, rightAngle, forward):
     Screen().bgcolor("#DCF3F3")
+    hideturtle()
     wid = [0]
     setup(rules, leftAngle, rightAngle, forward, wid)
 

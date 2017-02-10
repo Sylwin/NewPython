@@ -43,6 +43,7 @@ def setup(rules, leftAngle, rightAngle, forward, wid):
 
 def manyTrees(rules, leftAngle, rightAngle, forward):
     Screen().bgcolor("#DCF3F3")
+    hideturtle()
     wid = [x for x in range(-500,501,85)]
     setup(rules, leftAngle, rightAngle, forward, wid)
 
