@@ -36,7 +36,7 @@ class startWindow(object, Frame):
         c = controller.button(self, "Bushes", lambda: controller.showFrame("bushesFrame"))
         e = controller.button(self, "Climber", lambda: controller.showFrame("climberFrame"))
         d = controller.button(self, "Conifer-like Tree", lambda: controller.showFrame("coniferLikeTreeFrame"))
-        f = controller.button(self, "Exit", lambda: app.destroy(), "red")
+        f = controller.button(self, "Exit", lambda: root.destroy(), "red")
 
 class bushyTreeFrame(object, Frame):
     def __init__(self, parent, controller):
@@ -79,5 +79,5 @@ class coniferLikeTreeFrame(object, Frame):
         r = controller.button(self, "Back", lambda: controller.showFrame("startWindow"), "red")
 
 if __name__ == "__main__":
-    app = windowFrame()
-    app.mainloop()
+    root = windowFrame()
+    root.mainloop()
